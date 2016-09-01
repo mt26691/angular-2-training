@@ -17,9 +17,9 @@ git clone https://github.com/mt26691/angular-2-training/
 ```
 npm install
 ```
-- This command will install Angular 2.0 and all dependencies
+- This command will install Angular 2.0 and all dependencies.
 
-**2/ After installing all dependencies, open cmd/terminal and run npm start to start the server
+**2/ After installing all dependencies, open cmd/terminal and run npm start to start the server**
 ```
 npm install
 ```
