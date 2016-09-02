@@ -1,27 +1,13 @@
 /*when we need some thing, we import it*/
 import { Component } from '@angular/core';
-
-export class Hero {
-    id: number;
-    name: string;
-}
-const HEROES: Hero[] = [
-    { id: 1, name: 'Darknight' },
-    { id: 2, name: 'Joker' },
-    { id: 3, name: 'Supermen' },
-    { id: 4, name: 'Iron Men' },
-    { id: 5, name: 'Spidermen' },
-    { id: 6, name: 'Songoku' },
-    { id: 7, name: 'Vegeta' },
-    { id: 8, name: 'Songohan' },
-    { id: 9, name: 'Android 17' },
-    { id: 10, name: 'Android 18' }
-]
+import {Hero} from './hero'
+import {HeroService} from './hero.service'
 
 //meta data tells angular how to create this Component
 @Component({
-    selector: 'my-app',
-    template: ` 
+  providers: [HeroService],
+  selector: 'my-app',
+  template: ` 
                 <h1>{{title}}</h1>
                 <h2>My Heroes</h2>
                 <ul class="heroes">
@@ -34,7 +20,7 @@ const HEROES: Hero[] = [
                 </ul>
                   <my-hero-detail [hero]="selectedHero"></my-hero-detail>
                 `,
-    styles: [`
+  styles: [`
       .selected {
         background-color: #CFD8DC !important;
         color: white;
@@ -86,15 +72,25 @@ const HEROES: Hero[] = [
 })
 
 //one way data binding
-export class AppComponent {
-    title = "tour of heroes";
-    // hero: Hero = {
-    //     id: 1,
-    //     name: "windstorm",
-    // };
-    heroes = HEROES;
-    selectedHero: Hero;
-    onSelect(hero: Hero): void {
-        this.selectedHero = hero;
-    }
+export class AppComponent  {
+  //method constructor
+  //heroService is also the private field for this class
+  constructor(private heroService: HeroService) {
+    this.getHeroes();
+  }
+
+  title = "tour of heroes";
+
+  heroes: Hero[];
+
+  getHeroes(): void {
+    this.heroService.getHeroes().then(t => this.heroes = t);
+  };
+
+  selectedHero: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
+
 }
