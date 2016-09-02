@@ -10,6 +10,12 @@ export class HeroService {
 
     }
 
+    getHero(id: number): Promise<Hero> {
+        //like linq expression
+        return this.getHeroes()
+             .then(heroes => heroes.find(hero => hero.id === id));
+    }
+
     //Hero array as a return type
     getHeroes(): Promise<Hero[]> {
         this.logger.log("Get heroes from server");

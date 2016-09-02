@@ -6,19 +6,25 @@ import { AppComponent }  from './app.component';
 import { HeroDetailComponent } from './hero-detail.component'
 import {Logger} from './logger.service';
 import {BetterLogger} from './better-logger.service';
+import {HeroesComponent} from './heroes.component';
+import {DashboardComponent} from './dashboard.component'
+import {HeroService} from './hero.service'
+import {routing} from './app.routing'
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroesComponent,
+    DashboardComponent
   ],
   bootstrap: [AppComponent],
-  providers: [Logger, { provide: Logger, useClass: BetterLogger }]
-
+  providers: [HeroService, { provide: Logger, useClass: BetterLogger }]
 })
 
 export class AppModule { }
