@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { HeroDetailComponent } from './hero-detail.component'
+import {Logger} from './logger.service';
+import {BetterLogger} from './better-logger.service';
 
 @NgModule({
   imports: [
@@ -14,6 +16,9 @@ import { HeroDetailComponent } from './hero-detail.component'
     AppComponent,
     HeroDetailComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
+  providers: [Logger, { provide: Logger, useClass: BetterLogger }]
+
 })
+
 export class AppModule { }
