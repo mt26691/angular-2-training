@@ -21,11 +21,14 @@ export class HeroDetailComponent implements OnInit {
             this.heroService.getHero(id).then(t => this.hero = t);
         });
     }
-    
-    goBack(): void{
+
+    goBack(): void {
         window.history.back();
     }
 
+    save(): void {
+        this.heroService.update(this.hero).then(this.goBack);
+    }
     //constructor with hero service and ActivatedRoute route
     constructor(private heroService: HeroService, private route: ActivatedRoute) {
 
