@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
                         <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
                         <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
                         <a routerLink="/create" routerLinkActive="active">Create Hero</a>
+                        <a routerLink="/register" routerLinkActive="active">Register user</a>
                     </nav>
                     <router-outlet></router-outlet>
                 </div>
