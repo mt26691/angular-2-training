@@ -16,6 +16,7 @@ import {HeroService} from './hero.service';
 import {routing} from './app.routing';
 import {HeroSearchComponent} from './hero-search.component'
 import './rxjs-extensions';
+
 @NgModule({
   imports: [
     BrowserModule,

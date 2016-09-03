@@ -5,13 +5,15 @@ import { Component } from '@angular/core';
 //meta data tells angular how to create this Component
 @Component({
     selector: 'my-app',
-    template: ` 
-                <h1>{{title}}</h1>
-                <nav>
-                    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-                    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-                </nav>
-                <router-outlet></router-outlet>
+    template: ` <div class="container">
+                    <h1>{{title}}</h1>
+                    <nav>
+                        <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+                        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+                        <a routerLink="/create" routerLinkActive="active">Create Hero</a>
+                    </nav>
+                    <router-outlet></router-outlet>
+                </div>
                 `,
     styleUrls: ['styles/app.component.css']
 
